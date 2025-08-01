@@ -51,7 +51,7 @@ const TextPadDrawer = ({ open, setOpen, cwd, onUpload }: TextPadDrawerProps) => 
         </Box>
 
         <TextField
-          label="Note Title"
+          label="Title"
           fullWidth
           variant="outlined"
           margin="normal"
@@ -60,7 +60,7 @@ const TextPadDrawer = ({ open, setOpen, cwd, onUpload }: TextPadDrawerProps) => 
         />
 
         <TextField
-          label="Write your note"
+          label="Write you note"
           fullWidth
           multiline
           rows={12}
