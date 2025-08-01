@@ -8,7 +8,7 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import { Home as HomeIcon, NoteAdd as NoteAddIcon } from "@mui/icons-material";
+import { Home as HomeIcon } from "@mui/icons-material";
 
 import FileGrid, { encodeKey, FileItem, isDirectory } from "./FileGrid";
 import MultiSelectToolbar from "./MultiSelectToolbar";
