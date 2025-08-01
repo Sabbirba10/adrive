@@ -216,7 +216,7 @@ function Main({
             }}
             onClick={() => setShowTextPadDrawer(true)}
           >
-          
+            Open
           </Button>
         </>
       )}

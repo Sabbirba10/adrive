@@ -42,7 +42,7 @@ const TextPadDrawer: React.FC<TextPadDrawerProps> = ({
     <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
       <Box sx={{ width: 400, padding: 2, display: "flex", flexDirection: "column", height: "100%" }}>
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
-          <Typography variant="h6">TextPad</Typography>
+          <Typography variant="h6">Note</Typography>
           <IconButton onClick={() => setOpen(false)}>
             <CloseIcon />
           </IconButton>
@@ -72,7 +72,7 @@ const TextPadDrawer: React.FC<TextPadDrawerProps> = ({
           onClick={handleSaveNote}
           disabled={!noteText.trim()}
         >
-          Save & Upload Note
+          Save & Upload
         </Button>
       </Box>
     </Drawer>

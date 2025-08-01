@@ -207,7 +207,6 @@ function Main({
           <UploadFab onClick={() => setShowUploadDrawer(true)} />
           <Button
             variant="contained"
-            startIcon={<NoteAddIcon />}
             sx={{
               position: "fixed",
               bottom: 90,
@@ -215,7 +214,7 @@ function Main({
               zIndex: 999,
             }}
             onClick={() => setShowTextPadDrawer(true)}
-          >
+          > Note
           
           </Button>
         </>
