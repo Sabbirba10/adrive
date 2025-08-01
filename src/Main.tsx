@@ -8,7 +8,7 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import { Home as HomeIcon } from "@mui/icons-material";
+import { Home as HomeIcon, NoteAlt as NoteIcon } from "@mui/icons-material";
 
 import FileGrid, { encodeKey, FileItem, isDirectory } from "./FileGrid";
 import MultiSelectToolbar from "./MultiSelectToolbar";
@@ -46,7 +46,7 @@ function PathBreadcrumb({
   return (
     <Breadcrumbs separator="›" sx={{ padding: 1 }}>
       <Button onClick={() => onCwdChange("")} sx={{ minWidth: 0, padding: 0 }}>
-        <HomeIcon />
+        <HomeIcon sx={{ color: "transparent" }} />
       </Button>
       {parts.map((part, index) =>
         index === parts.length - 1 ? (
@@ -204,7 +204,9 @@ function Main({
 
       {multiSelected === null && (
         <>
-          <UploadFab onClick={() => setShowUploadDrawer(true)} />
+          <UploadFab
+            onClick={() => setShowUploadDrawer(true)}
+          />
           <Button
             variant="contained"
             sx={{
@@ -212,10 +214,15 @@ function Main({
               bottom: 90,
               right: 24,
               zIndex: 999,
+              borderRadius: "50%", // Make the button circular
+              minWidth: 56,        // Typical FAB size
+              width: 56,
+              height: 56,
+              padding: 0,
             }}
             onClick={() => setShowTextPadDrawer(true)}
-          > Note
-          
+          >
+            <NoteIcon sx={{ color: "white" }} fontSize="large" />
           </Button>
         </>
       )}
