@@ -1,22 +1,15 @@
-import { IconButton, InputBase, Menu, MenuItem, Toolbar } from "@mui/material";
-import { useState } from "react";
+import { IconButton, InputBase, Toolbar } from "@mui/material";
 import { MoreHoriz as MoreHorizIcon } from "@mui/icons-material";
 
 function Header({
   search,
   onSearchChange,
   setShowProgressDialog,
-  onViewAs,
-  onSortBy,
 }: {
   search: string;
   onSearchChange: (newSearch: string) => void;
   setShowProgressDialog: (show: boolean) => void;
-  onViewAs: () => void; // Add this prop
-  onSortBy: () => void; // Add this prop
 }) {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
   return (
     <Toolbar disableGutters sx={{ padding: 1 }}>
       <InputBase
@@ -35,40 +28,10 @@ function Header({
         aria-label="More"
         color="inherit"
         sx={{ marginLeft: 0.5 }}
-        onClick={(e) => setAnchorEl(e.currentTarget)}
+        onClick={() => setShowProgressDialog(true)}
       >
         <MoreHorizIcon />
       </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={() => setAnchorEl(null)}
-      >
-        <MenuItem
-          onClick={() => {
-            setAnchorEl(null);
-            onViewAs();
-          }}
-        >
-          View as
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setAnchorEl(null);
-            onSortBy();
-          }}
-        >
-          Sort by
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setAnchorEl(null);
-            setShowProgressDialog(true);
-          }}
-        >
-          Progress
-        </MenuItem>
-      </Menu>
     </Toolbar>
   );
 }
