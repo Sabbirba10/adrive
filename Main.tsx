@@ -5,10 +5,13 @@ import {
   Breadcrumbs,
   Button,
   CircularProgress,
+  IconButton,
   Link,
   Typography,
 } from "@mui/material";
 import { Home as HomeIcon } from "@mui/icons-material";
+import NoteIcon from "@mui/icons-material/Note";
+import UploadIcon from "@mui/icons-material/Upload";
 
 import FileGrid, { encodeKey, FileItem, isDirectory } from "./FileGrid";
 import MultiSelectToolbar from "./MultiSelectToolbar";
@@ -197,28 +200,66 @@ function Main({
             onCwdChange={(newCwd: string) => setCwd(newCwd)}
             multiSelected={multiSelected}
             onMultiSelect={handleMultiSelect}
-            emptyMessage={<Centered>No files or folders</Centered>}
+            emptyMessage={<Centered>Upload files to be here</Centered>}
           />
         </DropZone>
       )}
 
       {multiSelected === null && (
-        <>
-          <UploadFab onClick={() => setShowUploadDrawer(true)} />
-          <Button
-            variant="contained"
-            startIcon={<NoteAddIcon />}
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: 24,
+            right: 24,
+            display: "flex",
+            flexDirection: "row",
+            gap: 1,
+            zIndex: 999,
+          }}
+        >
+          <IconButton
+            size="small"
+            color="primary"
             sx={{
-              position: "fixed",
-              bottom: 90,
-              right: 24,
-              zIndex: 999,
+              backgroundColor: "#e0e0e0", // gray background
+              borderRadius: "6px",
+              p: 0.25,
+              width: 32,
+              height: 32,
+              "&:hover": { backgroundColor: "#bdbdbd" }, // darker gray on hover
             }}
             onClick={() => setShowTextPadDrawer(true)}
           >
-            Open
-          </Button>
-        </>
+            <NoteIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            size="small"
+            color="primary"
+            sx={{
+              backgroundColor: "#e0e0e0", // gray background
+              borderRadius: "6px",
+              p: 0.25,
+              width: 32,
+              height: 32,
+              "&:hover": { backgroundColor: "#bdbdbd" }, // darker gray on hover
+            }}
+            component="label"
+          >
+            <UploadIcon fontSize="small" />
+            <input
+              hidden
+              type="file"
+              multiple
+              onChange={(e) => {
+                if (e.target.files) {
+                  uploadEnqueue(
+                    ...Array.from(e.target.files).map((file) => ({ file, basedir: cwd }))
+                  );
+                }
+              }}
+            />
+          </IconButton>
+        </Box>
       )}
 
       <UploadDrawer
