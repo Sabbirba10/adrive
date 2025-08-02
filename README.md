@@ -1,22 +1,74 @@
 # ADrive
 
-ADrive is a Cloudflare R2 storage manager with Pages and Workers with free 10 GB cloud storage.
-Free serverless backend with a limit of 100,000 invocation requests per day.
+ADrive is a modern web-based file manager for Cloudflare R2, featuring a serverless backend powered by Cloudflare Pages and Workers. It provides a user-friendly interface for uploading, organizing, and sharing files, with support for large file uploads, thumbnails, and WebDAV access.
 
 ## Features
 
-- Upload large files
-- Create folders
-- Search files
-- Image/video/PDF thumbnails
-- WebDAV endpoint
-- Drag and drop upload
+- **Large File Uploads:** Supports chunked uploads for files larger than 100MB.
+- **Create Folders:** Organize your files in directories.
+- **Search:** Quickly find files by name.
+- **Image/Video/PDF Thumbnails:** Preview your media files with generated thumbnails.
+- **WebDAV Endpoint:** Access your files using any WebDAV client.
+- **Drag and Drop Upload:** Easily upload files by dragging them into the browser.
+- **TextPad:** Create and upload text notes directly from the web interface.
 
-### WebDAV endpoint
+## Getting Started
 
-You can use any client (such as [Cx File Explorer](https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer), [BD File Manager](https://play.google.com/store/apps/details?id=com.liuzho.file.explorer))
-that supports the WebDAV protocol to access your files.
-Fill the endpoint URL as `https://<domain-url>/webdav` and use the username and password you set.
+### Prerequisites
 
-However, the standard WebDAV protocol does not support large file (≥128MB) uploads due to the limitation of Cloudflare Workers.
-You must upload large files through the web interface which supports chunked uploads.
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- [Cloudflare account](https://dash.cloudflare.com/) with R2 enabled
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/Sabbirba10/adrive.git
+   cd adrive
+   ```
+
+2. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+3. **Configure Cloudflare R2 and Workers:**
+
+   - Set up your R2 bucket and Workers environment variables as needed.
+
+4. **Start the development server:**
+
+   ```sh
+   npm start
+   ```
+
+5. **Build for production:**
+   ```sh
+   npm run build
+   ```
+
+## WebDAV Endpoint
+
+You can use any WebDAV client (such as [Cx File Explorer](https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer) or [BD File Manager](https://play.google.com/store/apps/details?id=com.liuzho.file.explorer)) to access your files.
+
+- **Endpoint URL:** `https://<your-domain>/webdav`
+- **Username/Password:** Set via environment variables
+
+> **Note:** Standard WebDAV clients may not support large file uploads (≥128MB) due to Cloudflare Workers limitations. Use the web interface for large files.
+
+## Project Structure
+
+- `src/` — Frontend React application
+- `functions/webdav/` — Cloudflare Pages Functions (WebDAV API)
+- `utils/` — Utility modules
+- `public/` — Static assets
+
+## License
+
+MIT
+
+---
+
+**ADrive** is free and open source.
