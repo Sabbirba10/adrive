@@ -6,10 +6,14 @@ function Header({
   search,
   onSearchChange,
   setShowProgressDialog,
+  onViewAs,
+  onSortBy,
 }: {
   search: string;
   onSearchChange: (newSearch: string) => void;
   setShowProgressDialog: (show: boolean) => void;
+  onViewAs: () => void; // Add this prop
+  onSortBy: () => void; // Add this prop
 }) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -40,8 +44,22 @@ function Header({
         open={Boolean(anchorEl)}
         onClose={() => setAnchorEl(null)}
       >
-        <MenuItem>View as</MenuItem>
-        <MenuItem>Sort by</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setAnchorEl(null);
+            onViewAs();
+          }}
+        >
+          View as
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setAnchorEl(null);
+            onSortBy();
+          }}
+        >
+          Sort by
+        </MenuItem>
         <MenuItem
           onClick={() => {
             setAnchorEl(null);
