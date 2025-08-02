@@ -18,7 +18,7 @@ const globalStyles = (
 );
 
 const theme = createTheme({
-  palette: { primary: { main: "#cccccc" } },
+  palette: { primary: { main: "#444444" } },
 });
 
 function App() {
