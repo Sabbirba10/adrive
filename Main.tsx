@@ -200,7 +200,7 @@ function Main({
             onCwdChange={(newCwd: string) => setCwd(newCwd)}
             multiSelected={multiSelected}
             onMultiSelect={handleMultiSelect}
-            emptyMessage={<Centered>Upload files to be here</Centered>}
+            emptyMessage={<Centered>drop files to be here</Centered>}
           />
         </DropZone>
       )}
