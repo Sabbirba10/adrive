@@ -67,8 +67,8 @@ You can use any WebDAV client (such as [Cx File Explorer](https://play.google.co
 
 ## License
 
-MIT
+MIT(https://github.com/Sabbirba10/adrive/blob/main/LICENSE)
 
 ---
 
-**ADrive** is free and open source.
+**ADrive** is free and open source. Developed by [Sabbir Bin Abbas](https://github.com/Sabbirba10/).
