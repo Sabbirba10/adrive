@@ -67,7 +67,7 @@ You can use any WebDAV client (such as [Cx File Explorer](https://play.google.co
 
 ## License
 
-MIT(https://github.com/Sabbirba10/adrive/blob/main/LICENSE)
+[MIT](https://github.com/Sabbirba10/adrive/blob/main/LICENSE)
 
 ---
 
